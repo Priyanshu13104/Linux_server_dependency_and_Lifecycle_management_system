@@ -1,0 +1,8 @@
+{
+  "monitoring_interval": 10,
+  "services": [],
+  "automatic_recovery_enabled": false,
+  "recovery_allowlist": [],
+  "recovery_retry_limit": 3,
+  "recovery_cooldown": 300
+}
