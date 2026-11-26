@@ -2,7 +2,7 @@ from utils.command_executor import execute
 from utils.validators import validate_service_name
 
 
-def list_services(include_not_found=False):
+def list_services(include_not_found=False): #for service discovery
     result = execute([
         "systemctl", "--no-pager", "--plain", "list-units",
         "--type=service", "--all",
@@ -27,7 +27,7 @@ def list_services(include_not_found=False):
     return services
 
 
-def get_service_status(service_name):
+def get_service_status(service_name): #status checking
     if not validate_service_name(service_name):
         return {"success": False, "error": "Invalid service name."}
     result = execute([
@@ -58,11 +58,11 @@ def get_service_status(service_name):
     }
 
 
-def get_running_services():
+def get_running_services(): 
     return [service for service in list_services() if service["active"] == "active"]
 
 
-def get_failed_services():
+def get_failed_services(): #failed service detection
     return [service for service in list_services(True) if service["active"] == "failed"]
 
 
