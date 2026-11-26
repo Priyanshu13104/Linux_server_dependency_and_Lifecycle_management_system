@@ -1,8 +1,10 @@
 {
   "monitoring_interval": 10,
   "services": [],
-  "automatic_recovery_enabled": false,
-  "recovery_allowlist": [],
+  "automatic_recovery_enabled": true,
+  "recovery_allowlist": [
+    "demo-failure.service"
+  ],
   "recovery_retry_limit": 3,
-  "recovery_cooldown": 300
+  "recovery_cooldown": 300.0
 }
